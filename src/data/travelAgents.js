@@ -1,0 +1,78 @@
+export const travelAgents = [
+  {
+    id: 1,
+    name: "Saniya",
+    agency: "Saniya Travel Services",
+    specialization: "Karnataka, Heritage Tours",
+    experience: "15+ years",
+    rating: 4.8,
+    reviews: 234,
+    location: "Bangalore, Karnataka",
+    phone: "+91 9886421216",
+    whatsapp: "+91 9886421216",
+    description: "Expert in Karnataka heritage tours, temple visits, and cultural experiences. Specializes in Mysore, Hampi, and Coorg packages.",
+    price: 299,
+    image: "👨‍💼"
+  },
+  {
+    id: 2,
+    name: "Travloger India",
+    agency: "Travloger India",
+    specialization: "Goa, Beach Tours",
+    experience: "12+ years",
+    rating: 4.9,
+    reviews: 189,
+    location: "Panaji, Goa",
+    phone: "+91 6281392007",
+    whatsapp: "+91 6281392007",
+    description: "Specializes in Goa beach tours, water sports, nightlife, and Portuguese heritage tours. Best deals on beach resorts.",
+    price: 349,
+    image: "👩‍💼"
+  },
+  {
+    id: 3,
+    name: "Weekend yaari",
+    agency: "Weekend yaari",
+    specialization: "Karnataka & Goa",
+    experience: "18+ years",
+    rating: 4.7,
+    reviews: 312,
+    location: "Mumbai, Maharashtra",
+    phone: "+91 8886424241",
+    whatsapp: "+91 8886424241",
+    description: "Complete South India tour packages covering Karnataka and Goa. Customizable itineraries for groups and families.",
+    price: 399,
+    image: "👨‍💼"
+  },
+  {
+    id: 4,
+    name: "SMVTRAVELS",
+    agency: "SMVTRAVELS",
+    specialization: "Premium Tours",
+    experience: "10+ years",
+    rating: 4.9,
+    reviews: 156,
+    location: "Hyderabad, Telangana",
+    phone: "+91 8098894503",
+    whatsapp: "+91 8098894503",
+    description: "Premium travel experiences in Karnataka and Goa. Luxury resorts, private tours, and exclusive experiences.",
+    price: 499,
+    image: "👩‍💼"
+  },
+  {
+    id: 5,
+    name: "Escape3Explore",
+    agency: "Escape3Explore",
+    specialization: "Adventure & Trekking",
+    experience: "14+ years",
+    rating: 4.8,
+    reviews: 201,
+    location: "Pune, Maharashtra",
+    phone: "+91 9886841712",
+    whatsapp: "+91 9886841712",
+    description: "Adventure tours, trekking, water sports, and outdoor activities in Karnataka and Goa. Perfect for adventure enthusiasts.",
+    price: 379,
+    image: "👨‍💼"
+  }
+]
+
