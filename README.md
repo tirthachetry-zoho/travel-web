@@ -116,9 +116,11 @@ Static SEO helpers:
    - Output directory: `dist`.
 3. In Vercel Project Settings → Environment Variables:
 
-   - `VITE_SITE_URL` = `https://your-vercel-domain.vercel.app` (or your custom domain).
+   - `VITE_SITE_URL` = `https://travel-web-ecru.vercel.app` (or your custom domain if you add one).
 
 4. Redeploy. Canonical URLs, OG tags, and sitemap will now use your production domain.
+
+**Live Site:** [https://travel-web-ecru.vercel.app/](https://travel-web-ecru.vercel.app/)
 
 ## Scripts
 

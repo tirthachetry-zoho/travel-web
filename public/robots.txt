@@ -1,5 +1,19 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://travelweb.com/sitemap.xml
+# Disallow admin or private paths if you add them later
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+Sitemap: https://travel-web-ecru.vercel.app/sitemap.xml
 

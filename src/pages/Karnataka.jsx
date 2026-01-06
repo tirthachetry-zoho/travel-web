@@ -1,7 +1,27 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import FAQSchema from '../components/FAQSchema'
 import { getCanonicalUrl } from '../config/site'
 import './Karnataka.css'
+
+const karnatakaFAQs = [
+  {
+    question: 'What is the best time to visit Karnataka?',
+    answer: 'October to March is the best time to visit Karnataka, with pleasant weather perfect for sightseeing and outdoor activities. The monsoon season (June-September) is ideal for visiting hill stations like Coorg and Chikmagalur.'
+  },
+  {
+    question: 'How many days are needed to explore Karnataka?',
+    answer: 'To explore Karnataka thoroughly, plan for at least 7-10 days. This allows you to visit major destinations like Bangalore, Mysore, Hampi, and Coorg. For a quick trip, 3-4 days focusing on one region is also possible.'
+  },
+  {
+    question: 'What are the must-visit places in Karnataka?',
+    answer: 'Must-visit places include Mysore Palace, Hampi (UNESCO World Heritage Site), Coorg hill station, Bangalore\'s tech parks and gardens, Chikmagalur coffee plantations, and Gokarna beaches.'
+  },
+  {
+    question: 'Is Karnataka safe for solo travelers?',
+    answer: 'Yes, Karnataka is generally safe for solo travelers. The state has good infrastructure, reliable public transport, and welcoming locals. However, standard travel precautions should always be followed.'
+  }
+]
 
 const Karnataka = () => {
   return (
@@ -12,7 +32,35 @@ const Karnataka = () => {
         keywords="Karnataka travel, Karnataka tourism, Bangalore, Mysore, Hampi, Coorg, Karnataka destinations, Karnataka attractions, Karnataka heritage, Karnataka temples"
         canonicalUrl={getCanonicalUrl('/karnataka')}
         ogImage={getCanonicalUrl('/images/karnataka-og.jpg')}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'TouristDestination',
+          name: 'Karnataka',
+          description: 'Discover Karnataka\'s rich heritage, stunning landscapes, ancient temples, and modern tech hubs. Complete travel guide to Mysore, Bangalore, Hampi, Coorg, and more.',
+          url: getCanonicalUrl('/karnataka'),
+          image: getCanonicalUrl('/images/karnataka-og.jpg'),
+          address: {
+            '@type': 'PostalAddress',
+            addressRegion: 'Karnataka',
+            addressCountry: 'IN'
+          },
+          containsPlace: [
+            { '@type': 'City', name: 'Bangalore' },
+            { '@type': 'City', name: 'Mysore' },
+            { '@type': 'Place', name: 'Hampi' },
+            { '@type': 'Place', name: 'Coorg' }
+          ],
+          touristType: ['Family', 'Solo', 'Couple', 'Adventure'],
+          breadcrumb: {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: getCanonicalUrl('/') },
+              { '@type': 'ListItem', position: 2, name: 'Karnataka', item: getCanonicalUrl('/karnataka') }
+            ]
+          }
+        }}
       />
+      <FAQSchema faqs={karnatakaFAQs} canonicalUrl={getCanonicalUrl('/karnataka')} />
       <div className="state-page">
         <section className="state-hero karnataka-hero">
           <div className="hero-overlay">
@@ -181,6 +229,30 @@ const Karnataka = () => {
               <div className="tip-card">
                 <h3>Local Transport</h3>
                 <p>KSRTC buses connect all major cities. Auto-rickshaws and taxis are available in cities. Renting a car is recommended for exploring.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="faq-section">
+          <div className="container">
+            <h2>Frequently Asked Questions</h2>
+            <div className="faq-list">
+              <div className="faq-item">
+                <h3>What is the best time to visit Karnataka?</h3>
+                <p>October to March is the best time to visit Karnataka, with pleasant weather perfect for sightseeing and outdoor activities. The monsoon season (June-September) is ideal for visiting hill stations like Coorg and Chikmagalur.</p>
+              </div>
+              <div className="faq-item">
+                <h3>How many days are needed to explore Karnataka?</h3>
+                <p>To explore Karnataka thoroughly, plan for at least 7-10 days. This allows you to visit major destinations like Bangalore, Mysore, Hampi, and Coorg. For a quick trip, 3-4 days focusing on one region is also possible.</p>
+              </div>
+              <div className="faq-item">
+                <h3>What are the must-visit places in Karnataka?</h3>
+                <p>Must-visit places include Mysore Palace, Hampi (UNESCO World Heritage Site), Coorg hill station, Bangalore's tech parks and gardens, Chikmagalur coffee plantations, and Gokarna beaches.</p>
+              </div>
+              <div className="faq-item">
+                <h3>Is Karnataka safe for solo travelers?</h3>
+                <p>Yes, Karnataka is generally safe for solo travelers. The state has good infrastructure, reliable public transport, and welcoming locals. However, standard travel precautions should always be followed.</p>
               </div>
             </div>
           </div>

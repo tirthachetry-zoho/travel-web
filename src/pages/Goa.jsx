@@ -1,7 +1,27 @@
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import FAQSchema from '../components/FAQSchema'
 import { getCanonicalUrl } from '../config/site'
 import './Goa.css'
+
+const goaFAQs = [
+  {
+    question: 'What is the best time to visit Goa?',
+    answer: 'November to February is the best time to visit Goa, with perfect weather for beach activities, water sports, and sightseeing. The peak tourist season offers clear skies and comfortable temperatures.'
+  },
+  {
+    question: 'How many days are enough for Goa?',
+    answer: 'For a complete Goa experience, plan for 4-5 days. This allows you to explore both North Goa (beaches and nightlife) and South Goa (tranquil beaches and heritage sites). A weekend trip of 2-3 days is also popular.'
+  },
+  {
+    question: 'What is the difference between North Goa and South Goa?',
+    answer: 'North Goa is known for its vibrant nightlife, bustling beaches like Calangute and Baga, and water sports. South Goa offers more tranquil, upscale resorts, pristine beaches like Palolem, and Portuguese heritage sites.'
+  },
+  {
+    question: 'Is Goa safe for solo female travelers?',
+    answer: 'Goa is generally safe for solo female travelers, especially in popular tourist areas. However, it\'s advisable to avoid isolated beaches at night and follow standard travel safety precautions.'
+  }
+]
 
 const Goa = () => {
   return (
@@ -12,7 +32,34 @@ const Goa = () => {
         keywords="Goa travel, Goa tourism, Goa beaches, North Goa, South Goa, Goa nightlife, Goa attractions, Goa destinations, Portuguese heritage Goa, Goa forts"
         canonicalUrl={getCanonicalUrl('/goa')}
         ogImage={getCanonicalUrl('/images/goa-og.jpg')}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'TouristDestination',
+          name: 'Goa',
+          description: 'Experience Goa\'s pristine beaches, vibrant nightlife, Portuguese architecture, and rich culture. Complete travel guide to North Goa, South Goa, beaches, forts, and more.',
+          url: getCanonicalUrl('/goa'),
+          image: getCanonicalUrl('/images/goa-og.jpg'),
+          address: {
+            '@type': 'PostalAddress',
+            addressRegion: 'Goa',
+            addressCountry: 'IN'
+          },
+          containsPlace: [
+            { '@type': 'City', name: 'Panaji' },
+            { '@type': 'Place', name: 'North Goa' },
+            { '@type': 'Place', name: 'South Goa' }
+          ],
+          touristType: ['Family', 'Solo', 'Couple', 'Party', 'Adventure'],
+          breadcrumb: {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: getCanonicalUrl('/') },
+              { '@type': 'ListItem', position: 2, name: 'Goa', item: getCanonicalUrl('/goa') }
+            ]
+          }
+        }}
       />
+      <FAQSchema faqs={goaFAQs} canonicalUrl={getCanonicalUrl('/goa')} />
       <div className="state-page">
         <section className="state-hero goa-hero">
           <div className="hero-overlay">
@@ -181,6 +228,30 @@ const Goa = () => {
               <div className="tip-card">
                 <h3>Getting Around</h3>
                 <p>Rent a scooter or bike for the best experience. Taxis and auto-rickshaws are available. Public buses connect major beaches and towns.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="faq-section">
+          <div className="container">
+            <h2>Frequently Asked Questions</h2>
+            <div className="faq-list">
+              <div className="faq-item">
+                <h3>What is the best time to visit Goa?</h3>
+                <p>November to February is the best time to visit Goa, with perfect weather for beach activities, water sports, and sightseeing. The peak tourist season offers clear skies and comfortable temperatures.</p>
+              </div>
+              <div className="faq-item">
+                <h3>How many days are enough for Goa?</h3>
+                <p>For a complete Goa experience, plan for 4-5 days. This allows you to explore both North Goa (beaches and nightlife) and South Goa (tranquil beaches and heritage sites). A weekend trip of 2-3 days is also popular.</p>
+              </div>
+              <div className="faq-item">
+                <h3>What is the difference between North Goa and South Goa?</h3>
+                <p>North Goa is known for its vibrant nightlife, bustling beaches like Calangute and Baga, and water sports. South Goa offers more tranquil, upscale resorts, pristine beaches like Palolem, and Portuguese heritage sites.</p>
+              </div>
+              <div className="faq-item">
+                <h3>Is Goa safe for solo female travelers?</h3>
+                <p>Goa is generally safe for solo female travelers, especially in popular tourist areas. However, it's advisable to avoid isolated beaches at night and follow standard travel safety precautions.</p>
               </div>
             </div>
           </div>

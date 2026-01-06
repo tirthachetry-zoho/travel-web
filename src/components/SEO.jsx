@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
+import StructuredData from './StructuredData'
 
-const SEO = ({ title, description, keywords, ogImage, canonicalUrl }) => {
+const SEO = ({ title, description, keywords, ogImage, canonicalUrl, type = 'website', structuredData }) => {
   useEffect(() => {
     // Update document title
     document.title = title
@@ -49,30 +50,24 @@ const SEO = ({ title, description, keywords, ogImage, canonicalUrl }) => {
       canonical.setAttribute('href', canonicalUrl)
     }
 
-    // Add structured data (JSON-LD)
-    const structuredData = {
-      '@context': 'https://schema.org',
-      '@type': 'TravelAgency',
-      name: title,
-      description: description,
-      url: canonicalUrl || window.location.href,
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: {
-          '@type': 'EntryPoint',
-          urlTemplate: (canonicalUrl || window.location.origin) + '/search?q={search_term_string}'
-        },
-        'query-input': 'required name=search_term_string'
+    // Add default structured data if none provided
+    if (!structuredData) {
+      structuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'TravelAgency',
+        name: title,
+        description: description,
+        url: canonicalUrl || window.location.href,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: (canonicalUrl || window.location.origin) + '/search?q={search_term_string}'
+          },
+          'query-input': 'required name=search_term_string'
+        }
       }
     }
-
-    let script = document.querySelector('script[type="application/ld+json"]')
-    if (!script) {
-      script = document.createElement('script')
-      script.setAttribute('type', 'application/ld+json')
-      document.head.appendChild(script)
-    }
-    script.textContent = JSON.stringify(structuredData)
 
     // Add og:url
     updateMetaTag('og:url', canonicalUrl || window.location.href, true)
@@ -85,9 +80,9 @@ const SEO = ({ title, description, keywords, ogImage, canonicalUrl }) => {
     if (!twitterCard) {
       updateMetaTag('twitter:card', 'summary_large_image')
     }
-  }, [title, description, keywords, ogImage, canonicalUrl])
+  }, [title, description, keywords, ogImage, canonicalUrl, type])
 
-  return null
+  return <StructuredData type="seo" data={structuredData} />
 }
 
 export default SEO
